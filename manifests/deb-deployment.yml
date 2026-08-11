@@ -18,7 +18,8 @@ spec:
              image: varasheswar/devopsapp: dbimage
              ports:
                - containerPort: 3306
-
+        imagePullSecrets:
+          - name: dockerhub
 
 ---
 apiVersion: v1
