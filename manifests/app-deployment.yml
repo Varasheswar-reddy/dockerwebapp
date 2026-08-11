@@ -1,3 +1,4 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -5,20 +6,20 @@ metadata:
 spec:
   replicas: 2
   selector:
-     matchLabels:
-        app: swiggy
+    matchLabels:
+      app: swiggy
   template:
-     metadata:
-        labels:
-          app: swiggy
-      spec:
-        containers:
-           - name: cont-1
-             image: varasheswar/devopsapp: appimage
-             ports:
-               - containerPort: 8080
-        imagePullSecrets:
-           - name: dockerhub
+    metadata:
+      labels:
+        app: swiggy
+    spec:
+      imagePullSecrets:
+        - name: dockerhub
+      containers:
+        - name: cont-1
+          image: varasheswar/devopsapp:appimage
+          ports:
+            - containerPort: 8080
 
 ---
 apiVersion: v1
@@ -32,4 +33,3 @@ spec:
   ports:
     - port: 8080
       targetPort: 8080
-      
